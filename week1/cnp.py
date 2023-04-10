@@ -7,7 +7,7 @@ def cnp_valid(cnp):
     luna = int(cnp[3:5])
     zi = int(cnp[5:7])
     judet = int(cnp[7:9])
-    order = int(cnp[9:12])
+    NNN = int(cnp[9:12])
     control = int(cnp[12])
 
     if sex not in [1, 2, 3, 4, 5, 6, 7, 8, 9]:
@@ -23,26 +23,26 @@ def cnp_valid(cnp):
         year += 100
 
 
-    if order == 0:
+    if NNN == 0:
         return False
 
-    if judet == 0 and order < 500:
+    if judet == 0 and NNN < 500:
         return False
 
-    if order >= 500:
-        order -= 500
+    if NNN >= 500:
+        NNN -= 500
 
     if judet not in range(1, 47) and judet not in range(51, 53):
         return False
 
     if judet in range(41, 47):
-        if order > 999:
+        if NNN > 999:
             return False
     elif judet in range(51, 53):
-        if order > 99:
+        if NNN > 99:
             return False
     else:
-        if order > 999:
+        if NNN > 999:
             return False
 
     numar_de_inmultit = [2, 7, 9, 1, 4, 6, 3, 5, 8, 2, 7, 9]
@@ -52,6 +52,6 @@ def cnp_valid(cnp):
 
     return check_sum == control
 
-test_cnp_1 = "5001219460085"
+test_cnp_1 = "6010103035301"
 
 print(cnp_valid(test_cnp_1))
