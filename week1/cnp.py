@@ -52,6 +52,5 @@ def cnp_valid(cnp):
 
     return check_sum == control
 
-test_cnp_1 = "5001219460085"
 
 print(cnp_valid(test_cnp_1))
